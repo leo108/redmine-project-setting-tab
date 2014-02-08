@@ -5,8 +5,7 @@ module ProjectsHelper
 		new_tabs = TabManager.get
 		new_tabs.each do |item|
 			tabs << item
-		end
-		p tabs
+		end unless new_tabs.nil?
 		tabs
 	end
 end

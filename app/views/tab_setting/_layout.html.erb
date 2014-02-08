@@ -1,0 +1,10 @@
+<%= form_for @project,
+            :url => { :controller => 'tab_setting', :action => 'save', :id => @project },
+            :html => {:method => :post} do |f| %>
+<% settings = TabSetting.get_settings(@project.id)%>
+<fieldset class="box">
+<%=render tab[:url].merge(:locals =>{:settings => settings}) %>
+</fieldset>
+<input type='hidden' name='tab' value='<%= tab[:name]%>'/>
+<p><%= submit_tag l(:button_save) %></p>
+<% end %>
