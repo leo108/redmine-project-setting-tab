@@ -5,7 +5,7 @@ class TabSetting < ActiveRecord::Base
         next unless plugin.tab_settings
         @@default_settings[plugin.id] = plugin.tab_settings[:default]
     end
-    def self.getSettings(project_id)
+    def self.get_settings(project_id)
         return @@cache[project_id.to_s] unless @@cache[project_id.to_s].nil?
         setting_arr = where(project_id: project_id)
         setting_hash = {}
