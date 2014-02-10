@@ -4,7 +4,7 @@ class TabSettingController < ApplicationController
         settings = params['settings']
         @project = Project.find(params[:id])
         project_id = @project.id
-        origin_settings = TabSetting.getSettings(@project.id)
+        origin_settings = TabSetting.get_settings(@project.id)
         settings.each do |plugin_id, sets|
             next unless origin_settings.has_key?(plugin_id)
             sets.each do |key, value|
