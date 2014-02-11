@@ -1,4 +1,4 @@
-= Redmine Project Setting Tab Plugin
+# Redmine Project Setting Tab Plugin
 
 This is a redmine plugin that add support for other plugin to add a setting tab in project setting page
 
@@ -61,7 +61,11 @@ You can use <%= settings['your_plugin_name']['your_project_setting_name'] %> to 
         tab_settings :default => {'email_address' => ''}
     end
 
-`tab_show_var` method will decide your tab(s) whether to be displayed. :var can be any variable's name, if :var's variable is equal to :expect_value, then all your tabs displayed.
+`tab_show_var` method will decide your tab(s) whether to be displayed. :var can be any expression, if :var's value is equal to :expect_value, then all your tabs displayed.
+
+Another example:
+
+
 
 There can only be *one* or *no* `tab_show_var` in a plugin, if there is no `tab_show_var`, it will display your tabs by default.
 
