@@ -4,6 +4,6 @@ Redmine::Plugin.register :_project_setting do
   author 'leo108'
   description 'This plugin add support for other plugin to add a setting tab in project setting page'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
+  url 'https://github.com/leo108/redmine-project-setting-tab'
   author_url 'http://leo108.com'
 end
