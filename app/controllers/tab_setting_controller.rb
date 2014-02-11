@@ -12,11 +12,11 @@ class TabSettingController < ApplicationController
             end
         end
         origin_settings.each do |plugin_id, sets|
-            record = TabSetting.where(project_id:project_id, plugin_id:plugin_id)
+            record = TabSetting.where(:project_id => project_id, :plugin_id => plugin_id)
             if record.size > 0
-                record.update(record.first.id, settings: sets.to_yaml)
+                record.update(record.first.id, :settings =>  sets.to_yaml)
             else
-                TabSetting.new(project_id:project_id, plugin_id:plugin_id,settings: sets.to_yaml)
+                TabSetting.new(:project_id => project_id, :plugin_id => plugin_id,:settings => sets.to_yaml)
             end
         end
         flash[:notice] = l(:notice_successful_update)
