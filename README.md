@@ -4,9 +4,9 @@ This is a redmine plugin that add support for other plugin to add a setting tab 
 
 ## Install
 
-> git clone https://github.com/leo108/redmine-project-setting-tab.git _project_setting
+> git clone https://github.com/leo108/redmine-project-setting-tab.git \_project\_setting
 
-*Notice that you have to clone this plugin into a directory named '_project_setting'.*
+*Notice that you have to clone this plugin into a directory named '\_project\_setting'.*
 
 ## Usage
 
@@ -35,7 +35,7 @@ The first argument is the tab's label, it can be a I18n symbol, the second argum
 
 ### the tab's view
 
-We set the :partial to 'tab/polls', so the view file is app/views/tab/_polls.html.erb
+We set the :partial to 'tab/polls', so the view file is app/views/tab/\_polls.html.erb
 
     <table>
       <tbody>
@@ -61,7 +61,7 @@ You can use <%= settings['your_plugin_name']['your_project_setting_name'] %> to 
         tab_settings :default => {'email_address' => ''}
     end
 
-`tab_show_expr` method will decide your tab(s) whether to be displayed. :expr can be any expression, if :expr's value is equal to :expect_value, then all your tabs displayed.
+`tab_show_expr` method will decide your tab(s) whether to be displayed. `:expr` can be any expression, if `:expr`'s value is equal to `:expect_value`, then all your tabs displayed.
 
 There can only be *one* or *no* `tab_show_expr` in a plugin, if there is no `tab_show_expr`, it will display your tabs by default.
 
