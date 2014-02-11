@@ -1,6 +1,6 @@
 class TabManager
     @@items = {}
-    @@var_name = {}
+    @@expr = {}
     def self.add(id, item)
         @@items[id] ||= []
         @@items[id] << item
@@ -9,20 +9,22 @@ class TabManager
     def self.get
         ret = []
         @@items.each do |id, item|
-            item = true if item.nil?
-            if item.is_a?(Hash)
-                var = eval(item[:var]) == item[:expect_value].to_s
+            expression = @@expr[id]
+            expression = true if expression.nil?
+            if expression.is_a?(Hash)
+                value = eval(expression[:expr])
+                display = value.to_s == expression[:expect_value].to_s
             else
-                var = item
+                display = expression
             end
-            if var
+            if display
                 ret = ret.concat(@@items[id])
             end
         end
         ret
     end
 
-    def self.set_var(id, var_name)
-        @@var_name[id] = var_name
+    def self.set_expr(id, expr)
+        @@expr[id] = expr
     end
 end

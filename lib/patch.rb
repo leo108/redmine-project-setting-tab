@@ -13,8 +13,8 @@ module Redmine
             item = {:name => label.to_s, :label => label, :url => url, :partial => 'tab_setting/layout'}
             TabManager.add(@id, item)
         end
-        def tab_show_var(var_name)
-            TabManager.set_var(@id, var_name)
+        def tab_show_expr(expression)
+            TabManager.set_expr(@id, expression)
         end
     end
 end

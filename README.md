@@ -56,18 +56,14 @@ You can use <%= settings['your_plugin_name']['your_project_setting_name'] %> to 
 
         settings :default => {'some_plugin_setting' => 'some value'}, :partial => 'settings/poll_settings'
 
-        tab_show_var :var => "Setting['plugin_redmine_polls']['some_plugin_setting']", :expect_value => 'some value'
+        tab_show_expr :expr => "Setting['plugin_redmine_polls']['some_plugin_setting']", :expect_value => 'some value'
         add_tab :polls, :partial => 'tab/polls'
         tab_settings :default => {'email_address' => ''}
     end
 
-`tab_show_var` method will decide your tab(s) whether to be displayed. :var can be any expression, if :var's value is equal to :expect_value, then all your tabs displayed.
+`tab_show_expr` method will decide your tab(s) whether to be displayed. :expr can be any expression, if :expr's value is equal to :expect_value, then all your tabs displayed.
 
-Another example:
-
-
-
-There can only be *one* or *no* `tab_show_var` in a plugin, if there is no `tab_show_var`, it will display your tabs by default.
+There can only be *one* or *no* `tab_show_expr` in a plugin, if there is no `tab_show_expr`, it will display your tabs by default.
 
 ### get project settings
 
