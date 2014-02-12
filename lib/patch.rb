@@ -1,10 +1,12 @@
-require File.expand_path(File.dirname(__FILE__) + '/../../../app/controllers/projects_controller')
-class ProjectsController < ApplicationController
-    before_filter :before_settings, :only => :settings
-    def before_settings
-        require File.expand_path(File.dirname(__FILE__) + '/../../../app/helpers/projects_helper')
-        require File.expand_path(File.dirname(__FILE__) + '/helper')
-    end
+module ProjectsHelper
+	def project_settings_tabs_extend
+		tabs = project_settings_tabs
+		new_tabs = TabManager.get
+		new_tabs.each do |item|
+			tabs << item
+		end unless new_tabs.nil?
+		tabs
+	end
 end
 module Redmine
     class Plugin
